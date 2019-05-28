@@ -1,0 +1,224 @@
+$pc-1: #f96331;
+$pc-2: #2ccabd;
+$pc-3: #333333;
+$pc-4: #bababa;
+
+$primary-colors: ($pc-1, $pc-2, $pc-3, $pc-4);
+
+@for $colIndex from 1 through length($primary-colors) {
+    .cl-pc-#{$colIndex} {
+        color: nth($primary-colors, $colIndex);
+    }
+
+    .bg-pc-#{$colIndex} {
+        background: nth($primary-colors, $colIndex);
+    }
+}
+
+$sc-1:#ffffff;
+$sc-2:#000000;
+
+img {
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    font-weight: normal;
+    line-height: normal;
+}
+
+p,
+span {
+    font-size: 14px;
+}
+
+a {
+    color: $pc-1;
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+        color: $pc-2;
+        text-decoration: none;
+    }
+}
+
+::placeholder {
+    color: $pc-4;
+    letter-spacing: 1px;
+}
+
+:-ms-input-placeholder {
+    color: $pc-4;
+    letter-spacing: 1px;
+}
+
+::-ms-input-placeholder {
+    color: $pc-4;
+    letter-spacing: 1px;
+}
+
+ul {
+
+    // padding: 10px;
+    &.inline {
+        li {
+            list-style: none;
+            display: inline;
+
+            a {
+                display: inline-block;
+            }
+        }
+    }
+
+    li {
+        list-style: circle;
+        margin-bottom: 4px;
+
+        a {
+            display: inline-block;
+        }
+    }
+}
+
+// Font Sizes
+@for $i from 8 through 46 {
+    .fs-#{$i} {
+        font-size: $i + px;
+    }
+}
+
+.lh-1 {
+    line-height: 1
+}
+
+.lh-1-5 {
+    line-height: 1.5
+}
+
+.lh-2 {
+    line-height: 2
+}
+
+// Padding
+$minSpace: 0;
+$maxSpace: 6;
+
+@for $i from $minSpace through $maxSpace {
+    .pd-#{$i} {
+        padding: $i + rem;
+    }
+}
+
+// Padding-top
+@for $i from $minSpace through $maxSpace {
+    .pd-t-#{$i} {
+        padding-top: $i + rem;
+    }
+}
+
+// Padding-bottom
+@for $i from $minSpace through $maxSpace {
+    .pd-b-#{$i} {
+        padding-bottom: $i + rem;
+    }
+}
+
+// Padding-right
+@for $i from $minSpace through $maxSpace {
+    .pd-r-#{$i} {
+        padding-right: $i + rem;
+    }
+}
+
+// Padding-left
+@for $i from $minSpace through $maxSpace {
+    .pd-l-#{$i} {
+        padding-left: $i + rem;
+    }
+}
+
+// Padding-left-right
+@for $i from $minSpace through $maxSpace {
+    .pd-lr-#{$i} {
+        padding-left: $i + rem;
+        padding-right: $i + rem;
+    }
+}
+
+// Padding-top-bottom
+@for $i from $minSpace through $maxSpace {
+    .pd-tb-#{$i} {
+        padding-top: $i + rem;
+        padding-bottom: $i + rem;
+    }
+}
+
+// -------------------------------------------------------------------------------------------------------
+
+// Margin
+@for $i from $minSpace through $maxSpace {
+    .mr-#{$i} {
+        margin: $i + rem;
+    }
+}
+
+// Margin-right
+@for $i from $minSpace through $maxSpace {
+    .mr-r-#{$i} {
+        margin-right: $i + rem;
+    }
+}
+
+// Margin-top
+@for $i from $minSpace through $maxSpace {
+    .mr-t-#{$i} {
+        margin-top: $i + rem;
+    }
+}
+
+// Margin-left
+@for $i from $minSpace through $maxSpace {
+    .mr-l-#{$i} {
+        margin-left: $i + rem;
+    }
+}
+
+// Margin-bottom
+@for $i from $minSpace through $maxSpace {
+    .mr-b-#{$i} {
+        margin-bottom: $i + rem;
+    }
+}
+
+// Margin-right-left
+@for $i from $minSpace through $maxSpace {
+    .mr-lr-#{$i} {
+        margin-left: $i + rem;
+        margin-right: $i + rem;
+    }
+}
+
+// Margin-top-bottom
+@for $i from $minSpace through $maxSpace {
+    .mr-tb-#{$i} {
+        margin-top: $i + rem;
+        margin-bottom: $i + rem;
+    }
+}
+
+// margon-auto
+.mr-auto {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+// -------------------------------------------------------------------------------------------------------
