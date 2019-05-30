@@ -1,14 +1,20 @@
 $(document).ready(function () {
-	// executes when HTML-Document is loaded and DOM is ready
+    // executes when HTML-Document is loaded and DOM is ready
+    setTimeout(() => {
+        $('body').css('overflow', 'auto')
+        $('.loading').fadeOut();
+        $('.main-wrapper').fadeIn();
+    }, 4500);
+    setTimeout(() => {
+        $('.loading').remove();
+    }, 6000);
     
-	
-	$(window).on('load', function() {
-	  // executes when complete page is fully loaded, including all frames, objects and images
-	  console.log("window is loaded");
-	});
-	console.log("Document is loaded");
-	
-	// find last node of tree
+    $(window).on('load', function () {
+        // executes when complete page is fully loaded, including all frames, objects and images        
+    });
+    console.log("Document is loaded");
+
+    // find last node of tree
     // var currentNode = $('.track-point').find('>ul>li:last-child');
     // var lastSubNode = $(currentNode.find('li'));
     // currentNode.addClass('current-node');
@@ -17,14 +23,14 @@ $(document).ready(function () {
     // 
     $(window).scroll(function () {
         if ($(document).scrollTop() > 300) {
-            $('#main-header').addClass('shrink-nav');            
+            $('#main-header').addClass('shrink-nav');
         } else {
-            $('#main-header').removeClass('shrink-nav');       
+            $('#main-header').removeClass('shrink-nav');
         }
     });
 
-    
-    
+
+
     //for image multi gallery
     $('.carousel-img-gallery').owlCarousel({
         items: 1,
@@ -67,3 +73,13 @@ $(document).ready(function () {
     })
 
 });
+
+function openNav() {
+    document.getElementById("sidebar").style.width = "280px";
+    // $('body').css('overflow', 'hidden')
+}
+
+function closeNav() {
+    document.getElementById("sidebar").style.width = "0";
+    // $('body').css('overflow', 'auto')
+}

@@ -1,0 +1,49 @@
+.loading {
+    background: $pc-3;
+    text-align: center;
+    position: fixed;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    path {
+        fill: transparent;
+        stroke: $sc-1;
+        stroke-width: 20px;
+        stroke-dasharray: 12740;
+        animation: logoanimation 10s infinite;
+
+        &:hover {
+            fill: $pc-2;
+            transition: 0.8s;
+        }
+    }
+
+    @keyframes logoanimation {
+        0% {
+            stroke-dashoffset: 12740;
+            fill: transparent;
+        }
+
+        50% {
+            stroke-dashoffset: 0;
+            fill: transparent;
+        }
+
+        100% {
+            stroke-dashoffset: 12740;
+            fill: transparent;
+            transition: 1s;
+        }
+
+    }
+
+    svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 200px;
+        width: 200px;
+    }
+}

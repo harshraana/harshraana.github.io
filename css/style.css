@@ -487,7 +487,7 @@ ul li a {
   padding-bottom: 0rem;
 }
 
-.pd-tb-1 {
+.pd-tb-1, section.declaration {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -497,7 +497,7 @@ ul li a {
   padding-bottom: 2rem;
 }
 
-.pd-tb-3, section.declaration {
+.pd-tb-3 {
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
@@ -1081,6 +1081,90 @@ ul li a {
   justify-content: center;
 }
 
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  transition: 0.4s;
+  padding-top: 60px;
+  box-shadow: 0px 0px 50px -14px rgba(0, 0, 0, 0.2), 0px 0px 12px 0px rgba(0, 0, 0, 0.2);
+}
+.sidenav .nav-items ul {
+  list-style: none;
+  padding: 0 10px;
+}
+.sidenav .nav-items ul li a {
+  border-radius: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-family: "MavenPro-Medium";
+  font-size: 16px;
+  color: #333333;
+  display: block;
+  transition: 0.3s;
+}
+.sidenav .nav-items ul li a:hover {
+  color: #f96331;
+  box-shadow: 5px 3px 17px -6px rgba(0, 0, 0, 0.2);
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color: #333333;
+}
+
+.loading {
+  background: #333333;
+  text-align: center;
+  position: fixed;
+  z-index: 999;
+  height: 100%;
+  width: 100%;
+  top: 0;
+}
+.loading path {
+  fill: transparent;
+  stroke: #ffffff;
+  stroke-width: 20px;
+  stroke-dasharray: 12740;
+  animation: logoanimation 10s infinite;
+}
+.loading path:hover {
+  fill: #2ccabd;
+  transition: 0.8s;
+}
+@keyframes logoanimation {
+  0% {
+    stroke-dashoffset: 12740;
+    fill: transparent;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 12740;
+    fill: transparent;
+    transition: 1s;
+  }
+}
+.loading svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 200px;
+  width: 200px;
+}
+
 /**
  * Owl Carousel v2.3.4
  * Copyright 2013-2018 David Deutsch
@@ -1322,7 +1406,7 @@ body {
   font-family: "MavenPro-Regular";
 }
 
-.loading {
+.underDeve {
   position: relative;
   width: 50%;
   height: auto;
@@ -1330,14 +1414,14 @@ body {
   pointer-events: none;
 }
 @media (max-width: 768px) {
-  .loading,
-.loading img {
+  .underDeve,
+.underDeve img {
     width: 90%;
   }
 }
 
 .main-wrapper {
-  display: none;
+  display: none !important;
   background: #fbfbfb;
 }
 
@@ -1391,20 +1475,21 @@ body {
   width: 100%;
   top: 0;
   z-index: 1;
-  box-shadow: -1px 1px 16px -4px rgba(0, 0, 0, 0.2);
-  padding: 25px 0px;
-  background: #ffffff;
+  padding: 15px 0px;
+  background: #333333;
   transition: 0.4s ease;
 }
 .header .logo {
   text-transform: uppercase;
 }
 .header .logo .site-title {
+  transition: 0.4s;
   font-family: "MavenPro-Medium";
-  color: #333333;
+  color: #ffffff;
   letter-spacing: 3px;
 }
 .header .logo .site-desc {
+  transition: 0.4s;
   color: #bababa;
   font-family: "MavenPro-Regular";
   letter-spacing: 1px;
@@ -1423,12 +1508,16 @@ body {
 }
 .header .nav ul li a {
   padding: 10px 15px;
-  color: #333333;
+  color: #ffffff;
   transition: 0.3s ease;
   font-size: 18px;
 }
+.header .nav ul li a.btn {
+  color: #333333;
+  font-family: "MavenPro-Medium";
+}
 .header .nav ul li a:hover {
-  color: #2ccabd;
+  color: #f96331;
   transition: 0.3s ease;
 }
 @media (max-width: 575.98px) {
@@ -1445,27 +1534,16 @@ body {
 .header.shrink-nav {
   transition: 0.4s ease;
   padding: 5px 0px;
-  background: #333333;
-  color: #ffffff;
 }
 .header.shrink-nav .logo .site-title {
-  color: #ffffff;
   font-size: 20px;
   letter-spacing: 1px;
 }
 .header.shrink-nav .logo .site-desc {
   font-size: 10px;
 }
-.header.shrink-nav .nav ul li a {
-  color: #ffffff;
-}
 .header.shrink-nav .nav ul li a.btn {
-  color: #333333;
   font-size: 15px;
-}
-.header.shrink-nav .nav ul li a:hover {
-  color: #2ccabd;
-  transition: 0.3s ease;
 }
 
 section {
@@ -1475,11 +1553,11 @@ section {
 }
 section.banner-section {
   padding: 0;
-  margin-top: 95px;
+  margin-top: 75px;
 }
 @media (max-width: 575.98px) {
   section.banner-section {
-    margin-top: 0px;
+    margin-top: 126px;
   }
 }
 section .content {
@@ -1612,12 +1690,6 @@ section.declaration {
   background: #333333;
   color: #ffffff;
 }
-@media (max-width: 991.98px) {
-  section.declaration .design-by {
-    margin-top: 20px;
-  }
-}
-
 .track-point h1 {
   font-family: "MavenPro-Bold";
   font-size: 26px;

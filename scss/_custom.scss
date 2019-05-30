@@ -3,7 +3,7 @@ body {
     font-family: $ff-1-reg;
 }
 
-.loading {
+.underDeve {
     position: relative;
     // left: 50%;
     width: 50%;
@@ -19,10 +19,11 @@ body {
             width: 90%;
         }
     }
+
 }
 
 .main-wrapper {
-    display: none;
+    display: none !important;
     background: #fbfbfb;
 }
 
@@ -79,22 +80,24 @@ body {
     width: 100%;
     top: 0;
     z-index: 1;
-    box-shadow: -1px 1px 16px -4px rgba(0, 0, 0, 0.2);
+    // box-shadow: -1px 1px 16px -4px rgba(0, 0, 0, 0.2);
     // box-shadow: 0px 0px 16px -26px rgba(0, 0, 0, 0.2), 0px 25px 18px -32px rgba(0, 0, 0, 0.2);
-    padding: 25px 0px;
-    background: $sc-1;
+    padding: 15px 0px;
+    background: $pc-3;
     transition: 0.4s ease;
 
     .logo {
         text-transform: uppercase;
 
         .site-title {
+            transition: 0.4s;
             font-family: $ff-1-md;
-            color: $pc-3;
+            color: $sc-1;
             letter-spacing: 3px;
         }
 
         .site-desc {
+            transition: 0.4s;
             color: $pc-4;
             font-family: $ff-1-reg;
             letter-spacing: 1px;
@@ -115,12 +118,17 @@ body {
             li {
                 a {
                     padding: 10px 15px;
-                    color: $pc-3;
+                    color: $sc-1;
                     transition: 0.3s ease;
                     font-size: 18px;
 
+                    &.btn {
+                        color: $pc-3;
+                        font-family: $ff-1-md;
+                    }
+
                     &:hover {
-                        color: $pc-2;
+                        color: $pc-1;
                         transition: 0.3s ease;
                     }
 
@@ -140,12 +148,9 @@ body {
     &.shrink-nav {
         transition: 0.4s ease;
         padding: 5px 0px;
-        background: $pc-3;
-        color: $sc-1;
 
         .logo {
             .site-title {
-                color: $sc-1;
                 font-size: 20px;
                 letter-spacing: 1px;
             }
@@ -159,16 +164,8 @@ body {
             ul {
                 li {
                     a {
-                        color: $sc-1;
-
                         &.btn {
-                            color: $pc-3;
                             font-size: 15px;
-                        }
-
-                        &:hover {
-                            color: $pc-2;
-                            transition: 0.3s ease;
                         }
                     }
                 }
@@ -182,10 +179,10 @@ section {
 
     &.banner-section {
         padding: 0;
-        margin-top: 95px;
+        margin-top: 75px;
 
         @include forWidth(575.98px) {
-            margin-top: 0px;
+            margin-top: 126px;
         }
     }
 
@@ -352,13 +349,9 @@ section {
     &.declaration {
         background: $pc-3;
         color: $sc-1;
-        @extend .pd-tb-3;
+        @extend .pd-tb-1;
 
-        .design-by {
-            @include forWidth(991.98px) {
-                margin-top: 20px;
-            }
-        }
+        .design-by {}
     }
 }
 
