@@ -923,14 +923,14 @@ body {
   width: 50%;
   height: auto;
   margin: auto;
-  pointer-events: none;
-  display: none !important; }
+  pointer-events: none; }
   @media (max-width: 768px) {
     .underDeve,
     .underDeve img {
       width: 90%; } }
 
 .scroll-wrapper {
+  display: none !important;
   position: absolute;
   height: 100%;
   width: 100%;

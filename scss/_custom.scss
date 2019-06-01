@@ -18,11 +18,11 @@ body {
         }
     }
     
-    display: none !important;
 }
 
 // Hide scrollbar
 .scroll-wrapper {
+    display: none !important;
     position: absolute;
     height: 100%;
     width: 100%;
