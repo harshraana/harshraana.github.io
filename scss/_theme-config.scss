@@ -34,9 +34,37 @@ p {
     line-height: normal;
 }
 
+h1 {
+    font-family: $ff-1-bo;
+    font-size: 26px;
+
+    @include forWidth(420px) {
+        font-size: 20px;
+    }
+}
+
+h2 {
+    font-family: $ff-1-bo;
+    font-size: 22px;
+
+    @include forWidth(420px) {
+        font-size: 18px;
+    }
+}
+
+h3 {
+    font-family: $ff-1-bo;
+    font-size: 18px;
+
+    @include forWidth(420px) {
+        font-size: 16px;
+    }
+}
+
 p,
 span {
     font-size: 14px;
+    font-family: $ff-1-reg;
 }
 
 a {
@@ -68,6 +96,15 @@ a {
 ul {
 
     // padding: 10px;
+    li {
+        list-style: circle;
+        margin-bottom: 4px;
+
+        a {
+            display: inline-block;
+        }
+    }
+
     &.inline {
         li {
             list-style: none;
@@ -79,14 +116,6 @@ ul {
         }
     }
 
-    li {
-        list-style: circle;
-        margin-bottom: 4px;
-
-        a {
-            display: inline-block;
-        }
-    }
 }
 
 // Font Sizes
