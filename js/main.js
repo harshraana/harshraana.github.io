@@ -1,16 +1,17 @@
 $(document).ready(function () {
-    // loader
-    setTimeout(() => {
-        $('body').css('overflow', 'auto')
-        $('.loading').fadeOut();
-        $('.main-wrapper').fadeIn();
-    }, 450);
-    setTimeout(() => {
-        $('.loading').remove();
-    }, 600);
-
+    
     // window load
-    $(window).on('load', function () {});
+    $(window).on('load', function () {
+        // loader
+        setTimeout(() => {
+            $('body').css('overflow', 'auto')
+            $('.loading').fadeOut();
+            $('.main-wrapper').fadeIn();
+        }, 4500);
+        setTimeout(() => {
+            $('.loading').remove();
+        }, 6000);
+    });
 
     // shrink header
     $('.main-wrapper').on('scroll', function () {

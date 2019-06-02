@@ -647,7 +647,7 @@ ul.inline li {
   padding-top: 0rem;
   padding-bottom: 0rem; }
 
-.pd-tb-1, .footer .declaration {
+.pd-tb-1 {
   padding-top: 1rem;
   padding-bottom: 1rem; }
 
@@ -889,22 +889,18 @@ ul.inline li {
   .loading path {
     fill: transparent;
     stroke: #ffffff;
-    stroke-width: 20px;
-    stroke-dasharray: 12740;
+    stroke-width: 70px;
+    stroke-dasharray: 47880;
     animation: logoanimation 10s infinite; }
     .loading path:hover {
-      fill: #2ccabd;
       transition: 0.8s; }
 @keyframes logoanimation {
   0% {
-    stroke-dashoffset: 12740;
-    fill: transparent; }
+    stroke-dashoffset: 47880; }
   50% {
-    stroke-dashoffset: 0;
-    fill: transparent; }
+    stroke-dashoffset: 0; }
   100% {
-    stroke-dashoffset: 12740;
-    fill: transparent;
+    stroke-dashoffset: 47880;
     transition: 1s; } }
   .loading svg {
     position: absolute;
@@ -928,146 +924,6 @@ body {
     .underDeve,
     .underDeve img {
       width: 90%; } }
-
-.scroll-wrapper {
-  display: none !important;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  left: 0px;
-  -webkit-transition: 0.4s;
-  -moz-transition: 0.4s;
-  -o-transition: 0.4s;
-  transition: 0.4s; }
-  .scroll-wrapper .main-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    padding-right: 17px;
-    box-sizing: content-box; }
-    .scroll-wrapper .main-wrapper .header-fix {
-      width: 100%;
-      height: 100px; }
-    .scroll-wrapper .main-wrapper .header {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 2;
-      transition: 0.4s ease;
-      background: #ffffff;
-      padding: 20px 0px;
-      box-shadow: 0px 0px 15px -8px rgba(0, 0, 0, 0.1), 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
-      -webkit-transition: 0.4s;
-      -moz-transition: 0.4s;
-      -o-transition: 0.4s;
-      transition: 0.4s; }
-      .scroll-wrapper .main-wrapper .header .nav {
-        text-align: right; }
-        .scroll-wrapper .main-wrapper .header .nav ul {
-          margin: 0;
-          padding-left: 0; }
-          .scroll-wrapper .main-wrapper .header .nav ul li a {
-            padding: 10px 15px;
-            color: #333333;
-            transition: 0.3s ease;
-            font-size: 18px; }
-            .scroll-wrapper .main-wrapper .header .nav ul li a.btn {
-              color: #333333;
-              font-family: "MavenPro-Medium"; }
-        @media (max-width: 767.98px) {
-          .scroll-wrapper .main-wrapper .header .nav {
-            text-align: center; } }
-      .scroll-wrapper .main-wrapper .header.shrink-nav {
-        transition: 0.4s ease;
-        padding: 10px 0px; }
-        .scroll-wrapper .main-wrapper .header.shrink-nav .logo .site-title {
-          font-size: 20px;
-          letter-spacing: 1px; }
-        .scroll-wrapper .main-wrapper .header.shrink-nav .logo .site-desc {
-          font-size: 10px; }
-      .scroll-wrapper .main-wrapper .header .logo {
-        text-transform: uppercase; }
-        .scroll-wrapper .main-wrapper .header .logo .site-title {
-          transition: 0.4s;
-          font-family: "MavenPro-Medium";
-          color: #333333;
-          letter-spacing: 3px; }
-        @media (max-width: 767.98px) {
-          .scroll-wrapper .main-wrapper .header .logo {
-            text-align: center; } }
-  .scroll-wrapper.open {
-    left: -250px;
-    -webkit-transition: left 0.4s;
-    -moz-transition: left 0.4s;
-    -o-transition: left 0.4s;
-    transition: left 0.4s; }
-    @media (max-width: 767.98px) {
-      .scroll-wrapper.open {
-        left: 0px; } }
-    .scroll-wrapper.open .main-wrapper {
-      overflow: hidden; }
-      .scroll-wrapper.open .main-wrapper .header {
-        left: -250px;
-        -webkit-transition: 0.4s;
-        -moz-transition: 0.4s;
-        -o-transition: 0.4s;
-        transition: 0.4s; }
-        @media (max-width: 767.98px) {
-          .scroll-wrapper.open .main-wrapper .header {
-            left: 0px; } }
-      @media (max-width: 767.98px) {
-        .scroll-wrapper.open .main-wrapper::before {
-          content: '';
-          position: fixed;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          background: rgba(0, 0, 0, 0.3);
-          z-index: 3; } }
-
-[data-title] {
-  position: relative; }
-  [data-title]::before {
-    content: attr(data-title);
-    position: absolute;
-    font-size: 12px;
-    font-family: "MavenPro-Medium";
-    letter-spacing: 0.5px;
-    bottom: -15px;
-    white-space: nowrap;
-    padding: 4px;
-    border-radius: 4px;
-    background: rgba(51, 51, 51, 0.8);
-    color: #ffffff;
-    transform: translate(-50%);
-    left: 50%;
-    -webkit-transition: 0.4s;
-    -moz-transition: 0.4s;
-    -o-transition: 0.4s;
-    transition: 0.4s;
-    opacity: 0;
-    visibility: hidden; }
-  [data-title].active::before {
-    -webkit-transition: 0.4s;
-    -moz-transition: 0.4s;
-    -o-transition: 0.4s;
-    transition: 0.4s;
-    opacity: 1;
-    visibility: visible; }
-
-section {
-  margin-right: -17px; }
-  @media (max-width: 767.98px) {
-    section {
-      margin-right: 0px; } }
-
-.footer .declaration {
-  background: #333333;
-  color: #ffffff; }
 
 .track-point h1,
 .track-point h2,
