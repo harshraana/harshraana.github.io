@@ -5,11 +5,11 @@ $(document).ready(function () {
             $('body').css('overflow', 'auto')
             $('.loading').fadeOut();
             $('.main-wrapper').fadeIn();
-        }, 450);
+        }, 4500);
         // loader
         setTimeout(() => {
             $('.loading').remove();
-        }, 600);
+        }, 6000);
         console.log('window');
     });
 
