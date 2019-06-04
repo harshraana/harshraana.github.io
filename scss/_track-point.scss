@@ -25,15 +25,15 @@
 
         &:nth-last-child(2) {
             &::before {
-                background: linear-gradient(to bottom, $pc-3, $pc-2);
+                background: linear-gradient(to bottom, $pc-3, $pc-1);
             }
         }
 
         &:last-child {
             >div {
                 &::before {
-                    background: $pc-2;
-                    box-shadow: 0px 0px 0px 10px rgba($pc-2, 0.2), 0px 0px 0px 20px rgba($pc-2, 0.1), 0px 0px 0px 30px rgba($pc-2, 0.05);
+                    background: $pc-1;
+                    box-shadow: 0px 0px 0px 10px rgba($pc-1, 0.2), 0px 0px 0px 20px rgba($pc-1, 0.1), 0px 0px 0px 30px rgba($pc-1, 0.05);
                 }
             }
 
@@ -44,15 +44,15 @@
                         position: absolute;
                         height: calc(100% + 10px);
                         width: 2px;
-                        background: $pc-2;
+                        background: $pc-1;
                         top: -100%;
                         left: -41px;
                     }
 
                     >div {
                         &::before {
-                            background: $pc-2;
-                            box-shadow: 0px 0px 0px 10px rgba($pc-2, 0.2), 0px 0px 0px 20px rgba($pc-2, 0.1);
+                            background: $pc-1;
+                            box-shadow: 0px 0px 0px 10px rgba($pc-1, 0.2), 0px 0px 0px 20px rgba($pc-1, 0.1);
                         }
                     }
                 }

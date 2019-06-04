@@ -5,15 +5,20 @@
     z-index: 9;
     top: 0;
     right: -250px;
-    background-color: $sc-1;
+    background-color: #f8f8f8;
     overflow-x: hidden;
     transition: 0.4s;
     padding-top: 60px;
-    border-left: 1px solid lighten($pc-4, 20%);
+    border-left: 1px solid lighten($pc-4, 30%);
+
+    @include forWidth(767.98px) {
+        background-color: $sc-1;
+    }
 
 
     &.open {
         right: 0px;
+        box-shadow: inset 3px -6px 16px -4px rgba(0, 0, 0, 0.2);
 
         @include forWidth(767.98px) {
             border-left: 1px solid transparent;
@@ -40,7 +45,7 @@
 
                     &:hover {
                         color: $pc-1;
-                        box-shadow: 5px 3px 17px -6px rgba(0, 0, 0, 0.2);
+                        padding-left: 10px;
                     }
                 }
             }
@@ -49,10 +54,17 @@
 
     .closebtn {
         position: absolute;
-        top: 0;
+        top: 20px;
         right: 25px;
         font-size: 36px;
         margin-left: 50px;
         color: $pc-3;
+        line-height: 0;
+        transition: 0.4s ease-in-out;
+
+        &:hover {
+            transform: rotate(180deg);
+            transition: 0.4s ease-in-out;
+        }
     }
 }

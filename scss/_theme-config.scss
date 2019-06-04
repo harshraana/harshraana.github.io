@@ -1,9 +1,24 @@
-$pc-1: #f96331;
+$pc-1: #f81c1c;
 $pc-2: #2ccabd;
-$pc-3: #333333;
-$pc-4: #bababa;
+$pc-3: #00244d;
+$pc-4: #998888;
+
+
+$sc-1:#ffffff;
+$sc-2:#202020;
 
 $primary-colors: ($pc-1, $pc-2, $pc-3, $pc-4);
+
+::-moz-selection {
+    /* Code for Firefox */
+    color: $sc-1;
+    background: $sc-2;
+}
+
+::selection {
+    color: $sc-1;
+    background: $sc-2;
+}
 
 @for $colIndex from 1 through length($primary-colors) {
     .cl-pc-#{$colIndex} {
@@ -11,12 +26,36 @@ $primary-colors: ($pc-1, $pc-2, $pc-3, $pc-4);
     }
 
     .bg-pc-#{$colIndex} {
-        background: nth($primary-colors, $colIndex);
+        stroke: nth($primary-colors, $colIndex);
     }
 }
 
-$sc-1:#ffffff;
-$sc-2:#000000;
+a {
+    color: $pc-1;
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+        color: $pc-2;
+        text-decoration: none;
+    }
+}
+
+::placeholder {
+    color: $pc-4;
+    letter-spacing: 1px;
+}
+
+:-ms-input-placeholder {
+    color: $pc-4;
+    letter-spacing: 1px;
+}
+
+::-ms-input-placeholder {
+    color: $pc-4;
+    letter-spacing: 1px;
+}
+
 
 img {
     width: 100%;
@@ -65,32 +104,6 @@ p,
 span {
     font-size: 14px;
     font-family: $ff-1-reg;
-}
-
-a {
-    color: $pc-1;
-    text-decoration: none;
-    display: inline-block;
-
-    &:hover {
-        color: $pc-2;
-        text-decoration: none;
-    }
-}
-
-::placeholder {
-    color: $pc-4;
-    letter-spacing: 1px;
-}
-
-:-ms-input-placeholder {
-    color: $pc-4;
-    letter-spacing: 1px;
-}
-
-::-ms-input-placeholder {
-    color: $pc-4;
-    letter-spacing: 1px;
 }
 
 ul {
@@ -251,3 +264,7 @@ $maxSpace: 6;
 }
 
 // -------------------------------------------------------------------------------------------------------
+
+.theme-light {}
+
+.theme-dark {}
