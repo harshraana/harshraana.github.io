@@ -1305,21 +1305,21 @@ section {
   top: 10px;
   left: -41px; }
 .track-point > ul > li:nth-last-child(2)::before {
-  background: linear-gradient(to bottom, #00244d, #f81c1c); }
+  background: linear-gradient(to bottom, #00244d, #2ccabd); }
 .track-point > ul > li:last-child > div::before {
-  background: #f81c1c;
-  box-shadow: 0px 0px 0px 10px rgba(248, 28, 28, 0.2), 0px 0px 0px 20px rgba(248, 28, 28, 0.1), 0px 0px 0px 30px rgba(248, 28, 28, 0.05); }
+  background: #2ccabd;
+  box-shadow: 0px 0px 0px 10px rgba(44, 202, 189, 0.2), 0px 0px 0px 20px rgba(44, 202, 189, 0.1), 0px 0px 0px 30px rgba(44, 202, 189, 0.05); }
 .track-point > ul > li:last-child ul li::before {
   content: '';
   position: absolute;
   height: calc(100% + 10px);
   width: 2px;
-  background: #f81c1c;
+  background: #2ccabd;
   top: -100%;
   left: -41px; }
 .track-point > ul > li:last-child ul li > div::before {
-  background: #f81c1c;
-  box-shadow: 0px 0px 0px 10px rgba(248, 28, 28, 0.2), 0px 0px 0px 20px rgba(248, 28, 28, 0.1); }
+  background: #2ccabd;
+  box-shadow: 0px 0px 0px 10px rgba(44, 202, 189, 0.2), 0px 0px 0px 20px rgba(44, 202, 189, 0.1); }
 .track-point > ul > li:last-child::before {
   content: none; }
 .track-point ul {
