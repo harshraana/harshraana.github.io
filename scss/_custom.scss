@@ -8,8 +8,7 @@ body {
 }
 
 .moveShadow {
-    min-height: 200px;
-
+    
     span {
         text-align: center;
         font-size: 100px;
@@ -247,10 +246,16 @@ section {
         overflow: hidden;
         position: relative;
         z-index: 1;
+        padding: 0;
 
         .content {
-            position: relative;
-            top: 20%;
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translatey(-50%);
+            z-index: 1;
+
+            @include forWidth(575.98px) {}
         }
 
         .profile {

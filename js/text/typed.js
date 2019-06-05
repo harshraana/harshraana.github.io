@@ -315,7 +315,7 @@
         // show cursor
         showCursor: true,
         // character for cursor
-        cursorChar: " ",
+        cursorChar: "|",
         // attribute to type (null == text)
         attr: null,
         // call when done callback function

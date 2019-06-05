@@ -76,7 +76,7 @@ $(document).ready(function () {
         var x = window.innerWidth / 2 - e.clientX;
         var y = window.innerHeight / 2 - e.clientY;
         var s = y - x;
-        element.css('text-shadow', x / 30 + 'px ' + y / 30 + 'px 15px rgba(0,0,0,0.2)');
+        element.css('text-shadow', x / 30 + 'px ' + y / 30 + 'px 15px rgba(0,0,0,0.4)');
     });
 
     // open dropdown common
@@ -102,7 +102,37 @@ $(document).ready(function () {
             body.addClass($(this).attr('class'));
         }
         $(this).closest('.dropdown').removeClass('open');
-    })
+    });
+
+
+    // Slick carousel
+    $('.projects-slider').slick({
+        centerMode: true,
+        centerPadding: '0px',
+        slidesToShow: 3,
+        arrows: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        responsive: [{
+                breakpoint: 768,
+                settings: {
+                    arrows: true,
+                    centerMode: true,
+                    centerPadding: '0px',
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    arrows: true,
+                    centerMode: true,
+                    centerPadding: '0px',
+                    slidesToShow: 1,
+                }
+            }
+        ]
+    });
 
 });
 
