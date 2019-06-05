@@ -12,6 +12,15 @@
         font-family: $ff-1-md;
     }
 
+    a {
+        color: $pc-2;
+
+        &:hover {
+            color: $pc-1;
+        }
+
+    }
+
     >ul>li {
         &::before {
             content: '';

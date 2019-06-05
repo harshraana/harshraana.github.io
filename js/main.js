@@ -5,7 +5,7 @@ $(document).ready(function () {
             $('body').css('overflow', 'auto')
             $('.loading').fadeOut();
             $('.main-wrapper').fadeIn();
-        }, 4500);
+        }, 45);
         // loader
         setTimeout(() => {
             $('.loading').remove();
@@ -119,7 +119,7 @@ $(document).ready(function () {
                     arrows: true,
                     centerMode: true,
                     centerPadding: '0px',
-                    slidesToShow: 3
+                    slidesToShow: 2
                 }
             },
             {
