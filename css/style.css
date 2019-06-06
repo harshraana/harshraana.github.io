@@ -854,7 +854,7 @@ ul.inline li {
   right: -250px;
   background-color: #f8f8f8;
   overflow-x: hidden;
-  transition: 0.4s;
+  transition: 0.4s ease;
   padding-top: 60px;
   border-left: 1px solid #e0dada; }
   @media (max-width: 767.98px) {
@@ -862,7 +862,8 @@ ul.inline li {
       background-color: #ffffff; } }
   .sidenav.open {
     right: 0px;
-    box-shadow: inset 3px -6px 16px -4px rgba(0, 0, 0, 0.2); }
+    box-shadow: inset 3px -6px 16px -4px rgba(0, 0, 0, 0.2);
+    transition: 0.4s ease; }
     @media (max-width: 767.98px) {
       .sidenav.open {
         border-left: 1px solid transparent;
@@ -1126,7 +1127,7 @@ ul.inline li {
       border-radius: 50%;
       height: 40px;
       width: 40px;
-      box-shadow: -4px 4px 20px -4px rgba(0, 0, 0, 0.3); }
+      box-shadow: 0px 4px 10px -4px rgba(0, 0, 0, 0.3); }
     .slick-slider .slick-arrow::after {
       position: absolute;
       visibility: visible;
@@ -1157,6 +1158,7 @@ ul.inline li {
   .slick-slider .slick-list .slick-track {
     margin: 15px 0; }
     .slick-slider .slick-list .slick-track .slick-slide {
+      outline: none;
       margin: 0 10px;
       min-height: 30px;
       border-radius: 6px;
@@ -1330,10 +1332,10 @@ body {
           font-size: 10px; }
   .scroll-wrapper.open {
     left: -250px;
-    -webkit-transition: left 0.4s;
-    -moz-transition: left 0.4s;
-    -o-transition: left 0.4s;
-    transition: left 0.4s; }
+    -webkit-transition: left 0.4s ease;
+    -moz-transition: left 0.4s ease;
+    -o-transition: left 0.4s ease;
+    transition: left 0.4s ease; }
     @media (max-width: 767.98px) {
       .scroll-wrapper.open {
         left: 0px; } }
@@ -1341,13 +1343,15 @@ body {
       overflow: hidden; }
       .scroll-wrapper.open .main-wrapper .header {
         left: -250px;
-        -webkit-transition: 0.4s;
-        -moz-transition: 0.4s;
-        -o-transition: 0.4s;
-        transition: 0.4s; }
+        -webkit-transition: 0.4s ease;
+        -moz-transition: 0.4s ease;
+        -o-transition: 0.4s ease;
+        transition: 0.4s ease; }
         @media (max-width: 767.98px) {
           .scroll-wrapper.open .main-wrapper .header {
             left: 0px; } }
+      .scroll-wrapper.open .main-wrapper section {
+        margin-right: 0; }
       @media (max-width: 767.98px) {
         .scroll-wrapper.open .main-wrapper::before {
           content: '';

@@ -5,7 +5,7 @@ $(document).ready(function () {
             $('body').css('overflow', 'auto')
             $('.loading').fadeOut();
             $('.main-wrapper').fadeIn();
-        }, 45);
+        }, 4500);
         // loader
         setTimeout(() => {
             $('.loading').remove();
