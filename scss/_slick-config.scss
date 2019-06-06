@@ -74,6 +74,7 @@
             margin: 15px 0;
 
             .slick-slide {
+                // max-width: 275px;
                 margin: 0 10px;
                 min-height: 30px;
                 border-radius: 6px;
@@ -87,7 +88,7 @@
                 }
 
                 .proj-img {
-                    height: 150px;
+                    height: 200px;
                     width: 100%;
                     overflow: hidden;
                     background: #f8f8f8 url(./../assets/images/proj-def-img.jpg) no-repeat;
