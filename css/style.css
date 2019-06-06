@@ -1541,6 +1541,8 @@ ul.inline li a {
 .slick-slider .slick-list .slick-track .slick-slide .proj-desc {
   padding: 15px;
   min-height: 150px;
+  position: relative;
+  background: #ffffff;
 }
 .slick-slider .slick-list .slick-track .slick-slide .proj-desc h3 {
   font-size: 16px;
@@ -1557,9 +1559,42 @@ ul.inline li a {
   color: #2ccabd;
   margin-bottom: 6px;
 }
+.slick-slider .slick-list .slick-track .slick-slide .proj-desc .proj-footer {
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  width: 100%;
+}
+.slick-slider .slick-list .slick-track .slick-slide .proj-desc .proj-footer p.proj-by {
+  position: relative;
+  font-size: 14px;
+  color: #00244d;
+  font-family: "MavenPro-Bold";
+}
+.slick-slider .slick-list .slick-track .slick-slide .proj-desc .proj-footer .proj-by {
+  margin-left: 15px;
+  height: 30px;
+  width: auto;
+}
 .slick-slider .slick-list .slick-track .slick-slide.slick-current {
   box-shadow: 0px 4px 10px -1px rgba(0, 0, 0, 0.2);
   transition: 0.4s ease-in-out;
+}
+
+[data-letters]:before {
+  content: attr(data-letters);
+  background: #f81c1c;
+  color: #ffffff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  border-radius: 20px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 2.1;
+  margin-right: 10px;
+  position: relative;
+  bottom: 2px;
 }
 
 body {
@@ -1772,6 +1807,9 @@ body {
 
 section {
   padding: 60px 0;
+  position: relative;
+  z-index: 1;
+  background: #f8f8f8;
 }
 section.banner-section {
   height: 100vh;
@@ -1810,7 +1848,7 @@ section.banner-section .profile .circle img {
   object-position: top center;
 }
 section.banner-section .banner-image {
-  position: absolute;
+  position: fixed;
   height: 100vh;
   min-height: 700px;
   width: 100%;
@@ -1826,7 +1864,7 @@ section.banner-section .banner-image::before {
   content: "";
   height: 100%;
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background: linear-gradient(to bottom, #ffffff, transparent);

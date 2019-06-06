@@ -99,7 +99,8 @@
                 .proj-desc {
                     padding: 15px;
                     min-height: 150px;
-
+                    position: relative;
+                    background: $sc-1;
                     h3 {
                         font-size: 16px;
                         margin-bottom: 6px;
@@ -117,6 +118,27 @@
                             margin-bottom: 6px;
                         }
 
+                    }
+
+                    .proj-footer {
+                        position: absolute;
+                        bottom: 10px;
+                        left: 0px;
+                        width: 100%;
+                        p.proj-by{
+                            position: relative;
+                            font-size: 14px;
+                            color: $pc-3;
+                            font-family: $ff-1-bo;
+                            &::before{
+
+                            }
+                        }
+                        .proj-by {
+                            margin-left: 15px;
+                            height: 30px;
+                            width: auto;
+                        }
                     }
                 }
 
