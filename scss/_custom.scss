@@ -242,7 +242,7 @@ section {
     padding: 60px 0;
     position: relative;
     z-index: 1;
-    background: #f8f8f8;
+    background: #fff;
 
 
     &.banner-section {
@@ -254,12 +254,17 @@ section {
         padding: 0;
 
         .content {
-            position: absolute;
-            width: 100%;
-            top: 50%;
-            transform: translatey(-50%);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            height: 100%;
+            align-content: center;
             z-index: 1;
+            >div{
+                flex: 0 0 100%;
 
+            }
             @include forWidth(575.98px) {}
         }
 
