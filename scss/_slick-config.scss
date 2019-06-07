@@ -2,7 +2,7 @@
     max-width: 75%;
     margin: 50px auto 0;
 
-    @include forWidth(900px) {
+    @include forWidth(992px) {
         max-width: 100%;
     }
 
@@ -132,9 +132,11 @@
                             font-size: 14px;
                             color: $pc-3;
                             font-family: $ff-1-bo;
-                            &::before{
-
-                            }
+                        }
+                        p:not(.proj-by){
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
                         }
                         .proj-by {
                             margin-left: 15px;
