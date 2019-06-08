@@ -27,7 +27,7 @@ $(document).ready(function () {
 
     $('.main-wrapper').on('scroll', function () {
         // shrink header
-        if ($('.main-wrapper').scrollTop() > 200) {
+        if ($('.main-wrapper').scrollTop() > 100) {
             $('#main-header').addClass('shrink-nav');
         } else {
             $('#main-header').removeClass('shrink-nav');
@@ -76,7 +76,7 @@ $(document).ready(function () {
         var x = window.innerWidth / 2 - e.clientX;
         var y = window.innerHeight / 2 - e.clientY;
         var s = y - x;
-        element.css('text-shadow', x / 30 + 'px ' + y / 30 + 'px 15px rgba(0,0,0,0.4)');
+        element.css('text-shadow', x / 30 + 'px ' + y / 30 + 'px 15px rgba(0,0,0,0.4), rgba(0, 0, 0, 0.2) 0px 0px 35px');
     });
 
     // open dropdown common
@@ -106,6 +106,17 @@ $(document).ready(function () {
 
 
     // Slick carousel
+    $('.banner-slider').slick({
+        dots: false,
+        arrows: false,
+        infinite: true,
+        speed: 1500,
+        fade: true,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        cssEase: 'linear'
+    });
+
     $('.projects-slider').slick({
         centerMode: true,
         centerPadding: '0px',
