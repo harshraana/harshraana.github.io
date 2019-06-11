@@ -49,6 +49,7 @@
 .fx-container {
   position: relative;
   padding: 0 15px;
+  box-sizing: border-box;
 }
 @media (max-width: 575.98px) {
   .fx-container {
@@ -79,11 +80,13 @@
 .fx-full {
   width: 100%;
   padding: 0 15px;
+  box-sizing: border-box;
 }
 
 .fx-grid {
   display: flex;
   flex-wrap: wrap;
+  margin: 0 -15px;
 }
 .fx-grid [class*=fx-lg],
 .fx-grid [class*=fx-md],
@@ -91,6 +94,29 @@
 .fx-grid [class*=fx-xs] {
   position: relative;
   width: 100%;
+}
+.fx-grid .fx,
+.fx-grid .fx-1,
+.fx-grid .fx-2,
+.fx-grid .fx-3,
+.fx-grid .fx-4,
+.fx-grid .fx-5,
+.fx-grid .fx-6,
+.fx-grid .fx-7,
+.fx-grid .fx-8,
+.fx-grid .fx-9,
+.fx-grid .fx-10,
+.fx-grid .fx-11,
+.fx-grid .fx-12 {
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+.fx-grid [class*=fx-lg],
+.fx-grid [class*=fx-md],
+.fx-grid [class*=fx-sm],
+.fx-grid [class*=fx-xs] {
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 .fx-grid .fx-1 {
   flex: 0 0 calc(100% / 12);
