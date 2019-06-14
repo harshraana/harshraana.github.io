@@ -1653,8 +1653,6 @@ body {
 }
 @media (max-width: 768.98px) {
   .moveShadow span {
-    color: #00244d;
-    text-shadow: none !important;
     font-size: 80px;
   }
 }
