@@ -18,6 +18,8 @@ body {
         min-height: 150px;
 
         @include forWidth(768.98px) {
+            color: $pc-3;
+            text-shadow: none !important;
             font-size: 80px;
         }
         @include forWidth(575.98px) {
