@@ -5,7 +5,7 @@ $(document).ready(function () {
             $('body').css('overflow', 'auto')
             $('.loading').fadeOut();
             $('.main-wrapper').fadeIn();
-        }, 4500);
+        }, 0);
         // loader
         setTimeout(() => {
             $('.loading').remove();
@@ -37,7 +37,7 @@ $(document).ready(function () {
             if ($(this).isInViewport()) {
                 $(this).addClass('onScreen');
             } else {
-                $(this).removeClass('onScreen');
+                // $(this).removeClass('onScreen');
             }
         });
 
