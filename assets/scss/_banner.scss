@@ -1,0 +1,55 @@
+.banner-section {
+  position: relative;
+  padding: 0 !important;
+
+  .banner-content {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    top: 0;
+
+    >div {
+      flex: 0 0 100%;
+
+      @include forWidth(991.98px) {
+        text-align: center;
+      }
+    }
+  }
+
+  .banner-carousel {
+    .slick-list {
+      .slick-track {
+        .slick-slide {
+          outline: none;
+          height: 100vh;
+          min-height: 670px;
+
+          &::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(to top, transparent 50%, $sc-1);
+            z-index: 1;
+
+            @include forWidth(991.98px) {
+              background: rgba($sc-1, 0.75);
+            }
+          }
+
+          .banner-item {
+            width: 100%;
+            height: 100vh;
+            min-height: 670px;
+            object-fit: contain;
+            object-position: center right;
+            background: rgba($pc-2, 0.1);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+.sidebar-wrapper {
+  position: fixed;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background: rgba($pc-3, 0.03);
+  padding: 8px 0 15px 15px;
+  box-sizing: border-box;
+
+  .close-sidebar {
+    text-align: right;
+
+    button {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 18px;
+      line-height: 0;
+      cursor: pointer;
+
+      i {
+        @include transition(0.5s ease);
+      }
+
+      &:active {
+        transition: 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+        background: rgba($pc-3, 0.2);
+      }
+
+      &:hover {
+        i {
+          transform: rotate(360deg);
+          @include transition(0.5s ease);
+        }
+      }
+    }
+  }
+
+  .nav {
+    padding-left: 0;
+
+    .nav-item {
+      list-style: none;
+
+      .btn {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        width: 100%;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        transition: 0.5s;
+
+        &:hover {
+          transition: 0.3s;
+          background: rgba($pc-3, 0.03);
+        }
+
+        &:active {
+          transition: 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+          background: rgba($pc-3, 0.03);
+        }
+
+        &.active,
+        &:focus {
+          transition: 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+          background: rgba($pc-3, 0.05);
+        }
+
+        i {
+          font-size: 18px;
+          margin-right: 10px;
+          min-width: 20px;
+          line-height: 1;
+        }
+      }
+    }
+  }
+}

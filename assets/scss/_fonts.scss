@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'MavenPro-Regular';
+    src: url('assets/fonts/MavenPro/MavenPro-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'MavenPro-Bold';
+    src: url('assets/fonts/MavenPro/MavenPro-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'MavenPro-Medium';
+    src: url('assets/fonts/MavenPro/MavenPro-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'MavenPro-Black';
+    src: url('assets/fonts/MavenPro/MavenPro-Black.ttf');
+}
+
+@font-face {
+    font-family: 'BerkshireSwash-Regular';
+    src: url('assets/fonts/Berkshire_Swash/BerkshireSwash-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Sacramento-Regular';
+    src: url('assets/fonts/Sacramento/Sacramento-Regular.ttf');
+}
+
+$ff-1-reg:'MavenPro-Regular';
+$ff-1-bo:'MavenPro-Bold';
+$ff-1-md:'MavenPro-Medium';
+$ff-1-bl:'MavenPro-Black';
+
+$ff-2-reg:'BerkshireSwash-Regular';
+
+$ff-3-reg:'Sacramento-Regular';
+
+
+.ff-1-reg {
+    font-family: $ff-1-reg;
+}
+
+.ff-1-bo {
+    font-family: $ff-1-bo;
+}
+
+.ff-1-bl {
+    font-family: $ff-1-bl;
+}
+
+.ff-1-md {
+    font-family: $ff-1-md;
+}
+
+.ff-2-reg {
+    font-family: $ff-2-reg;
+}
+
+.ff-3-reg {
+    font-family: $ff-3-reg;
+}
