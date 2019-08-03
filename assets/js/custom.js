@@ -27,7 +27,7 @@ $(document).ready(function () {
     e.stopPropagation();
   })
 
-  $('.sidebar-toggle, .close-sidebar').on('click', function (e) {
+  $('.sidebar-toggle, .close-sidebar, .nav-item button').on('click', function (e) {
     e.stopPropagation();
     $(document).find('.main-wrapper').toggleClass('open-sidebar');
   });
