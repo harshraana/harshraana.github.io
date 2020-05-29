@@ -1,0 +1,22 @@
+@font-face {
+    font-family: MontDemo-ExtraLight;
+    src: url('./../../fonts/MontDemo-ExtraLight.otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: MontDemo-Heavy;
+    src: url('./../../fonts/MontDemo-Heavy.otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  $ff-h-1:BaronNeue-Regular,
+  sans-serif;
+  $ff-n-1:MontDemo-ExtraLight,
+  sans-serif;
+  $ff-n-2:MontDemo-Heavy,
+  sans-serif;
+  
+@import "../../scss/main";

@@ -1,57 +1,85 @@
 $(document).ready(function () {
+  /* ------------------------------------- */
+  /* -------Open Close navigation--------- */
+  /* ------------------------------------- */
+  var navItems = document.querySelectorAll('.nav li');
+  var navDelay = 9;
+  $('.nav-toggle').on('click', function () {
+    event.stopPropagation();
+    $(this).toggleClass('open');
+    var navState = $('.nav-toggle').hasClass('open');
 
-  /* -------------------------------------------------------- */
-  /* Theme Change JS */
-  /* -------------------------------------------------------- */
+    navItems.forEach((item, i) => {
+      $(item).css({
+        'transform': navState != true ? 'translateX(0%)' : 'translateX(-100%)',
+        'transition-delay': i / navDelay + 's'
+      });
+    });
 
-  var html = document.querySelector('html');
-  var theme = localStorage.getItem('theme');
-  html.setAttribute('data-theme', theme == undefined ? 'lightTheme' : theme);
-  theme == undefined || theme != 'darkTheme' ? '' : document.querySelector('.theme-control input').setAttribute('checked', true);
-  document.querySelector('.theme-name').innerText = theme == undefined || theme != 'darkTheme' ? 'Light' : 'Dark';
-
-  document.querySelector('.theme-control input').addEventListener('change', function () {
-    var currentTheme = html.getAttribute('data-theme');
-    if (currentTheme == 'lightTheme') {
-
-      //fade transition while change theme 
-      trans();
-
-      html.setAttribute('data-theme', 'darkTheme')
-      html.classList.remove('lightTheme');
-      html.classList.add('darkTheme');
-      localStorage.setItem('theme', 'darkTheme');
-      document.querySelector('.theme-name').innerText = "Dark";
-
-    } else {
-
-      //fade transition while change theme 
-      trans();
-
-      html.setAttribute('data-theme', 'lightTheme')
-      html.classList.remove('darkTheme');
-      html.classList.add('lightTheme');
-      localStorage.setItem('theme', 'lightTheme');
-      document.querySelector('.theme-name').innerText = "Light";
-
-    }
   });
 
-  //add transition
-  let trans = () => {
-    document.documentElement.classList.add('trans-animate');
-    window.setTimeout(() => {
-      document.documentElement.classList.remove('trans-animate');
-    }, 600);
+  $(document).on('click', () => {
+    $('.nav-toggle').removeClass('open');
+    navItems.forEach((item, i) => {
+      $(item).css({
+        'transform': 'translateX(0%)',
+        'transition-delay': i / navDelay + 's'
+      });
+    });
+  });
+  /* ------------------------------------- */
+});
+
+function initFullpage() {
+
+  if ($('html').hasClass('fp-enabled')) {
+    $.fn.fullpage.destroy('all');
   }
 
-  /* -------------------------------------------------------- */
-  /* Open Close Menu */
-  /* -------------------------------------------------------- */
+  $('#fullpage').fullpage({
+    //Custom selectors
+    sectionSelector: '.section',
+    slideSelector: '.slide',
 
-  $('.menu-toggle').on('click', function () {
-    $(this).closest('.main-navigatin').toggleClass('nav-expand');
-    $(this).closest('.right-navigation').toggleClass('openedNav');
+    //Navigation
+    navigation: false,
+    navigationPosition: 'right',
+    navigationTooltips: [],
+    showActiveTooltip: false,
+
+    scrollingSpeed: 800,
+    autoScrolling: true,
+    scrollBar: true,
+    loopBottom: false,
+    loopTop: false,
+    continuousVertical: false,
+
+    // it requires the vendor library scrolloverflow.min.js
+    scrollOverflow: true,
+
+    //Accessibility
+    keyboardScrolling: true,
+    animateAnchor: true,
+    recordHistory: false,
+
+    //Design
+    controlArrows: true,
+    verticalCentered: true,
+    // paddingTop: '3em',
+    // paddingBottom: '10px',
+    // fixedElements: '#header, .footer',
+    // responsiveWidth: 0,
+    // responsiveHeight: 0,
+    // responsiveSlides: false,
+    lazyLoading: true,
   });
+}
 
-});
+
+function initJs() {
+
+  /* ------------------------------------- */
+  /* AOS Animation */
+  /* ------------------------------------- */
+  AOS.init();
+}

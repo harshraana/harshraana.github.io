@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Map integration with Data Table</title>
+
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="./../vendor/css/_jquery.dataTables.min.scss">
+  <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+  <section class="section">
+
+    <div class="section-content">
+
+      <div class="fx-container">
+
+
+        <!-- Google Map Integrationh -->
+        <div class="component map-list">
+
+          <h4 class="component-title">Google Map integration with Table Data, Filtering and Searching</h4>
+
+          <div class="fx-grid">
+
+            <div class="fx-lg-4">
+
+              <div class="card">
+
+                <div class="card-header">
+
+                  <div class="map-list_swich">
+                    <div class="form-group">
+
+                      <div class="input-radio active">
+                        <input type="radio" name="switch" id="map-selector" data-target="#map-container">
+                        <label for="map-selector">Map</label>
+                      </div>
+
+                      <div class="input-radio">
+                        <input type="radio" name="switch" id="list-selector" data-target="#list-container">
+                        <label for="list-selector">List</label>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="card-body"></div>
+
+                <div class="card-actions"></div>
+
+              </div>
+
+            </div>
+
+            <div class="fx-lg-8">
+
+              <div class="map-list_container">
+
+                <div class="map-container show" id="map-container">
+                  <div class="filter-map" id="filterMap"></div>
+                </div>
+
+                <div class="list-container" id="list-container">
+                  <div class="table-responsive">
+                    <table class="data-table">
+                      <thead>
+                        <tr>
+                          <th>
+                            <h6>City</h6>
+                          </th>
+                          <th>
+                            <h6>State</h6>
+                          </th>
+                          <th>
+                            <h6>Country</h6>
+                          </th>
+                          <th>
+                            <h6>Population</h6>
+                          </th>
+                          <th>
+                            <h6>Directions</h6>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- Append Rows via JS -->
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th>city</th>
+                          <th>state</th>
+                          <th>country</th>
+                          <th>population</th>
+                          <th></th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="component">
+
+          <h4 class="component-title">Google address auto-complete</h4>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <script src="./../vendor/js/jQuery.min.js"></script>
+  <script src="./../vendor/js/markerclustererplus.min.js"></script>
+  <script src="./../vendor/js/jquery.dataTables.min.js"></script>
+  <script src="./main.js"></script>
+
+</body>
+
+</html>
