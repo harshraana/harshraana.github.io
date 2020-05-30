@@ -16,8 +16,14 @@ $(document).ready(function () {
   /* -------------------------------- */
   /* Getting JSON Data From JSON file */
   /* -------------------------------- */
+  var checkForState = [];
+
   $.getJSON("./../../json/mapList.json", function (data) {
     $.each(data, function (key, val) {
+
+      /* ----------------------------------------------------------- */
+      /* Create ROW element for Table and Append one by one to Table */
+      /* ----------------------------------------------------------- */
       var row =
         `<tr> 
         <td><p>` + val.city + `</p></td> 
@@ -25,8 +31,36 @@ $(document).ready(function () {
         <td><p>` + val.country + `</p></td>  
         <td><p><b>` + val.population_proper + `</b></p></td>  
         <td><p><a href="https://www.google.com/maps/search/?api=1&query=` + val.geometry.coordinates[0] + `,` + val.geometry.coordinates[1] + `" target="blank">Get Direction</a></p></td> 
-      </tr>`
+      </tr>`;
+      /* Append one by one row to Table */
       $('#list-container table tbody').append(row);
+
+
+      /* ----------------------------------------------------------- */
+      /* Create Oprions for select filter at left side */
+      /* ----------------------------------------------------------- */
+
+
+      var optCity, optState;
+
+      optCity = `<option value="` + val.city.trim().toLowerCase() + `">` + val.city + `</option>`;
+
+      /* Check for Duplicate State */
+      if (!checkForState.includes(val.admin.trim().toLowerCase())) {
+        checkForState.push(val.admin.trim().toLowerCase());
+        optState = `<option value="` + val.admin.trim().toLowerCase() + `">` + val.admin + `</option>`;
+      }
+
+      $('#city_filter').append(optCity);
+      $('#state_filter').append(optState);
+
+    });
+
+    /* ----------------------------------------- */
+    /* Select 2 Init */
+    /* ----------------------------------------- */
+    $('.custom-select').select2({
+      // minimumResultsForSearch: -1,
     });
 
     /* -------------- */
@@ -67,6 +101,9 @@ $(document).ready(function () {
   });
 
 });
+
+
+
 
 
 /* ----------------------------------------- */
@@ -112,7 +149,7 @@ function setMarkers(marker, map) {
   var country = marker.country.trim();
   var population = marker.population_proper.trim();
 
-  
+
   /* if you have multiple items (Array) in string formate */
   /* 
     var type = marker.type.split(',').map(function (x) {
