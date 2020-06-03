@@ -110,7 +110,7 @@ $(document).ready(function () {
       var cityVal = document.querySelector('.map-list #city_filter').value.toLowerCase().trim();
       var stateVal = document.querySelector('.map-list #state_filter').value.toLowerCase().trim();
       var SearchVal = document.querySelector('.map-list #search_text').value.trim();
-      var popRange = document.querySelector('.map-list input[name="population"]:checked').value.toLowerCase().split(",");
+      
 
       $('.map-list .list-container tfoot').find('input[name="city"]').val(cityVal);
       $('.map-list .list-container tfoot').find('input[name="state"]').val(stateVal);
@@ -118,28 +118,34 @@ $(document).ready(function () {
 
       $('.map-list .list-container tfoot').find('input').trigger('change');
 
+      
       /* Filter for *Range of Population* */
-      var filteredData = listData.column(3).data().filter(function (value, index) {
-        var val = value.match(/\d+/g) == null ? 0 : parseInt(value.match(/\d+/g)[0]);
-        var min = parseInt(popRange[0]);
-        var max = parseInt(popRange[1]);
+      jQuery.fn.dataTableExt.afnFiltering.push(
+        function (oSettings, aData, iDataIndex) {
+          
+          var popRange = document.querySelector('.map-list input[name="population"]:checked').value.toLowerCase().split(",");
+          
+          var val = parseInt(aData[3]);
+          var min = parseInt(popRange[0]);
+          var max = parseInt(popRange[1]);
 
-        if (isNaN(min)) {
-          if (popRange[0] == "<" && val < max) {
-            return true;
-          } else if (popRange[0] == ">" && val > max) {
-            return true;
-          } else if (popRange[0] == "all") {
-            return true;
+          if (isNaN(min)) {
+            if (popRange[0] == "<" && val < max) {
+              return true;
+            } else if (popRange[0] == ">" && val > max) {
+              return true;
+            } else if (popRange[0] == "all") {
+              return true;
+            }
+          } else {
+            if (val > min && val < max) {
+              return true;
+            }
           }
-        } else {
-          if (val > min && val < max) {
-            return true;
-          }
+          return false;
         }
-      });
+      );
 
-      console.log(filteredData);
 
       // Check for inpi=ut Value
       if (SearchVal != "") {
@@ -148,9 +154,6 @@ $(document).ready(function () {
         listData.search('').draw();
       }
     });
-
-
-
 
   });
 });
