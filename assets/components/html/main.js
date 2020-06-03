@@ -35,14 +35,12 @@ $(document).ready(function () {
       /* Append one by one row to Table */
       $('#list-container table tbody').append(row);
 
-
       /* ----------------------------------------------------------- */
       /* Create Oprions for select filter at left side */
       /* ----------------------------------------------------------- */
-
-
       var optCity, optState;
 
+      /* if city has Multiple Values */
       optCity = `<option value="` + val.city.trim().toLowerCase() + `">` + val.city + `</option>`;
 
       /* Check for Duplicate State */
@@ -70,6 +68,8 @@ $(document).ready(function () {
       pagingType: "simple_numbers",
       lengthMenu: -1,
       searching: true,
+      pageLength: 12,
+      scrollX: true
     });
 
     /* -------------------------------------- */
@@ -95,14 +95,65 @@ $(document).ready(function () {
       });
     });
 
-    /* Set Markers to Map */
+    /* -------------------------------------- */
+    /* Init Map */
+    /* -------------------------------------- */
     initMap(data);
 
+    /* -------------------------------------- */
+    /* Filters in Map */
+    /* -------------------------------------- */
+    $('.map-list .btn-filter').on('click', data, filterMap);
+
+    $('.map-list .btn-filter').on('click', function () {
+
+      var cityVal = document.querySelector('.map-list #city_filter').value.toLowerCase().trim();
+      var stateVal = document.querySelector('.map-list #state_filter').value.toLowerCase().trim();
+      var SearchVal = document.querySelector('.map-list #search_text').value.trim();
+      var popRange = document.querySelector('.map-list input[name="population"]:checked').value.toLowerCase().split(",");
+
+      $('.map-list .list-container tfoot').find('input[name="city"]').val(cityVal);
+      $('.map-list .list-container tfoot').find('input[name="state"]').val(stateVal);
+
+
+      $('.map-list .list-container tfoot').find('input').trigger('change');
+
+      /* Filter for *Range of Population* */
+      var filteredData = listData.column(3).data().filter(function (value, index) {
+        var val = value.match(/\d+/g) == null ? 0 : parseInt(value.match(/\d+/g)[0]);
+        var min = parseInt(popRange[0]);
+        var max = parseInt(popRange[1]);
+
+        if (isNaN(min)) {
+          if (popRange[0] == "<" && val < max) {
+            return true;
+          } else if (popRange[0] == ">" && val > max) {
+            return true;
+          } else if (popRange[0] == "all") {
+            return true;
+          }
+        } else {
+          if (val > min && val < max) {
+            return true;
+          }
+        }
+      });
+
+      console.log(filteredData);
+
+      // Check for inpi=ut Value
+      if (SearchVal != "") {
+        listData.search(SearchVal, true, false).draw();
+      } else {
+        listData.search('').draw();
+      }
+    });
+
+
+
+
   });
-
 });
-
-
 
 
 
@@ -114,6 +165,7 @@ var markers = [];
 var markerCluster;
 var map;
 
+/* Map init */
 function initMap(data) {
   map = new google.maps.Map(document.getElementById('filterMap'), {
     zoom: 6,
@@ -139,23 +191,22 @@ function initMap(data) {
   map.fitBounds(bounds);
 
 }
-
 /* Set Markers Function */
 function setMarkers(marker, map) {
   /*  Assign Values */
   var markerMap = marker.geometry.coordinates;
-  var city = marker.city.trim();
+
+  /* if you have multiple items (Array) in string formate */
+  var city = marker.city.split(',').map(function (x) {
+    return x.toLowerCase().trim()
+  });
+
   var state = marker.admin.trim();
   var country = marker.country.trim();
   var population = marker.population_proper.trim();
 
 
-  /* if you have multiple items (Array) in string formate */
-  /* 
-    var type = marker.type.split(',').map(function (x) {
-      return x.toLowerCase().trim()
-    }); 
-  */
+
 
   var pos = new google.maps.LatLng(markerMap[0], markerMap[1]);
   var content = marker;
@@ -187,7 +238,121 @@ function setMarkers(marker, map) {
       infowindow.setContent(content);
       infowindow.open(map, markerMap);
       map.panTo(this.getPosition());
-      map.setZoom(15);
+      // map.setZoom(15);
     }
   })(markerMap, content));
+}
+/* Manage Cluster and Markers after Filter Function */
+function clusterManager(array) {
+  markerCluster.clearMarkers();
+  var bounds = new google.maps.LatLngBounds();
+
+  if (!array.length) {
+    jQuery('.alert').addClass('is-visible');
+  } else {
+    jQuery('.alert').removeClass('is-visible');
+    for (i = 0; i < array.length; i++) {
+      markerCluster.addMarker(array[i]);
+      bounds.extend(array[i].position);
+    }
+    map.fitBounds(bounds);
+  }
+}
+/* Filtering a MAP */
+function filterMap(event) {
+
+  var cityVal = document.querySelector('.map-list #city_filter').value.toLowerCase().trim();
+  var stateVal = document.querySelector('.map-list #state_filter').value.toLowerCase().trim();
+  var popRange = document.querySelector('.map-list input[name="population"]:checked').value.toLowerCase().split(",");
+  var searchStr = document.querySelector('.map-list #search_text').value.trim();
+
+
+  var json = event.data;
+  var arr = [];
+
+  if (searchStr.length > 0) {
+    /* executes when search input is not empty */
+
+    var lowerSearch = searchStr.toLowerCase();
+    for (var i = 0; i < json.length; i++) {
+
+      /* Checking for select filters */
+      if (json[i].city.toLowerCase().includes(cityVal) && json[i].admin.toLowerCase().includes(stateVal)) {
+
+        /* Checking for search input filter */
+        if (json[i].city.toLowerCase().includes(lowerSearch) || json[i].admin.toLowerCase().includes(lowerSearch) || json[i].country.toLowerCase().includes(lowerSearch) || json[i].population_proper.includes(lowerSearch)) {
+
+          /* Checking for radio (range) filter */
+          if (popRange[0] == "all" || popRange[0] == "<" || popRange[0] == ">") {
+
+            //lessthen popRange[1]
+            if (popRange[0] == "<") {
+              if (parseInt(json[i].population_proper) < parseInt(popRange[1])) {
+                arr.push(markers[i]);
+              }
+              //greaterthen popRange[1]
+            } else if (popRange[0] == ">") {
+              if (parseInt(json[i].population_proper) > parseInt(popRange[1])) {
+                arr.push(markers[i]);
+              }
+              //all
+            } else {
+              arr.push(markers[i]);
+            }
+
+          } else {
+
+            //Specific Range
+            if (parseInt(json[i].population_proper) > parseInt(popRange[0]) && parseInt(json[i].population_proper) < parseInt(popRange[1])) {
+              arr.push(markers[i]);
+            }
+          }
+
+        }
+
+      }
+
+    }
+
+  } else {
+
+    /* executes when search input is empty */
+    for (var i = 0; i < json.length; i++) {
+
+      /* Checking for select filters */
+      if (json[i].city.toLowerCase().includes(cityVal) && json[i].admin.toLowerCase().includes(stateVal)) {
+
+        /* Checking for radio (range) filter */
+        if (popRange[0] == "all" || popRange[0] == "<" || popRange[0] == ">") {
+
+          //lessthen popRange[1]
+          if (popRange[0] == "<") {
+            if (parseInt(json[i].population_proper) < parseInt(popRange[1])) {
+
+              arr.push(markers[i]);
+            }
+            //greaterthen popRange[1]
+          } else if (popRange[0] == ">") {
+            if (parseInt(json[i].population_proper) > parseInt(popRange[1])) {
+
+              arr.push(markers[i]);
+            }
+            //all
+          } else {
+            arr.push(markers[i]);
+          }
+
+        } else {
+
+          //Specific Range
+          if (parseInt(json[i].population_proper) > parseInt(popRange[0]) && parseInt(json[i].population_proper) < parseInt(popRange[1])) {
+
+            arr.push(markers[i]);
+          }
+        }
+
+      }
+    }
+  }
+  clusterManager(arr);
 }

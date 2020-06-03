@@ -2726,7 +2726,7 @@ section .component .component-title {
 .map-list .map-list_container .map-container,
 .map-list .map-list_container .list-container {
   height: 0;
-  width: 0;
+  width: 100%;
   overflow: hidden;
 }
 .map-list .map-list_container .map-container.show,

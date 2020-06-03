@@ -1,6 +1,6 @@
 [
     {
-        "city": "Mumbai",
+        "city": "Mumbai,Bombay",
         "admin": "Maharashtra",
         "country": "India",
         "population_proper": "12691836",
@@ -32,7 +32,7 @@
         "population": "15926000"
     },
     {
-        "city": "Kolkata",
+        "city": "Kolkata,Calcutta ",
         "admin": "West Bengal",
         "country": "India",
         "population_proper": "4631392",
@@ -48,7 +48,7 @@
         "population": "14787000"
     },
     {
-        "city": "Chennai",
+        "city": "Chennai, Madras",
         "admin": "Tamil Nadu ",
         "country": "India",
         "population_proper": "4328063",
@@ -64,7 +64,7 @@
         "population": "7163000"
     },
     {
-        "city": "Bengalubru",
+        "city": "Bengaluru, Bangalore",
         "admin": "Karnataka",
         "country": "India",
         "population_proper": "5104047",
@@ -128,7 +128,7 @@
         "population": "4841638"
     },
     {
-        "city": "Pune",
+        "city": "Pune,Poona",
         "admin": "Maharashtra",
         "country": "India",
         "population_proper": "2935744",
@@ -256,7 +256,7 @@
         "population": "2026000"
     },
     {
-        "city": "Vadodara",
+        "city": "Vadodara, Baroda",
         "admin": "Gujarat",
         "country": "India",
         "population_proper": "1409476",
@@ -352,7 +352,7 @@
         "population": "1576614"
     },
     {
-        "city": "Vishakhapatnam",
+        "city": "Vishakhapatnam,Waltair",
         "admin": "Andhra Pradesh",
         "country": "India",
         "population_proper": "1063178",
@@ -368,7 +368,7 @@
         "population": "1529000"
     },
     {
-        "city": "Kochi",
+        "city": "Kochi, Cochin",
         "admin": "Kerala",
         "country": "India",
         "population_proper": "604696",
@@ -432,7 +432,7 @@
         "population": "1394000"
     },
     {
-        "city": "Varanasi",
+        "city": "Varanasi,Benaras",
         "admin": "Uttar Pradesh",
         "country": "India",
         "population_proper": "1164404",
@@ -704,7 +704,7 @@
         "population": "995000"
     },
     {
-        "city": "Guwahati",
+        "city": "Guwahati, Gauhati",
         "admin": "Assam",
         "country": "India",
         "population_proper": "17516",
@@ -752,7 +752,7 @@
         "population": "978000"
     },
     {
-        "city": "Thiruvananthapuram",
+        "city": "Thiruvananthapuram, Trivandrum",
         "admin": "Kerala",
         "country": "India",
         "population_proper": "784153",
@@ -800,7 +800,7 @@
         "population": "890000"
     },
     {
-        "city": "Mysore",
+        "city": "Mysore,Mysuru",
         "admin": "Karnataka",
         "country": "India",
         "population_proper": "868313",
@@ -976,7 +976,7 @@
         "population": "787000"
     },
     {
-        "city": "Mangalore",
+        "city": "Mangalore,Mangaluru",
         "admin": "Karnataka",
         "country": "India",
         "population_proper": "417387",
@@ -1472,7 +1472,7 @@
         "population": "469737"
     },
     {
-        "city": "Bellary",
+        "city": "Bellary,Ballari",
         "admin": "Karnataka",
         "country": "India",
         "population_proper": "336681",
@@ -2304,7 +2304,7 @@
         "population": "229384"
     },
     {
-        "city": "Puducherry",
+        "city": "Puducherry,Pondicherry",
         "admin": "Puducherry",
         "country": "India",
         "population_proper": "227411",
@@ -2512,7 +2512,7 @@
         "population": "197451"
     },
     {
-        "city": "Gurgaon",
+        "city": "Gurgaon, Gurugram",
         "admin": "Haryana",
         "country": "India",
         "population_proper": "197340",
