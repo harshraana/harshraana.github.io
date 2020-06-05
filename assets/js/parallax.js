@@ -12,13 +12,17 @@ $(document).ready(function () {
 function makeParallaxBg() {
   parallaxContainers = document.querySelectorAll('.parallax-wrapper');
   parallaxContainers.forEach((section, i) => {
-    var backgroundUrl = $(section).find('.sect-bg img').attr('src');
-    $(section).css({
-      'background-image': 'url(' + backgroundUrl + ')',
-      'background-attachment': 'fixed',
-      'background-size': 'cover',
-      'background-position-x': 'center'
-    });
+
+    if ($('.sect-bg img').length) {
+      var backgroundUrl = $(section).find('.sect-bg img').attr('src');
+      $(section).css({
+        'background-image': 'url(' + backgroundUrl + ')',
+        'background-attachment': 'fixed',
+        'background-size': 'cover',
+        'background-position-x': 'center'
+      });
+    }
+    
   });
   $('.sect-bg img').hide();
 }

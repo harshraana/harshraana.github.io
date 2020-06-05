@@ -28,6 +28,18 @@ $(document).ready(function () {
     });
   });
   /* ------------------------------------- */
+
+  var lastScrollTop = 0;
+  $(window).scroll(function () {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) {
+      $('.main-header .logo').addClass('shrinked');
+    } else {
+      $('.main-header .logo').removeClass('shrinked');
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+
 });
 
 function initFullpage() {
@@ -74,7 +86,6 @@ function initFullpage() {
     lazyLoading: true,
   });
 }
-
 
 function initJs() {
 
