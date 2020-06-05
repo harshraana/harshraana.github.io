@@ -93,4 +93,8 @@ function initJs() {
   /* AOS Animation */
   /* ------------------------------------- */
   AOS.init();
+  /* ------------------------------------- */
+  /* rellax Animation */
+  /* ------------------------------------- */
+  var rellax = new Rellax('.rellax');
 }
