@@ -23,6 +23,8 @@ header.main-header {
         align-items: center;
 
         span:nth-child(1) {
+          min-width: 70px;
+          max-width: 80px;
           overflow: hidden;
           @include transition(0.4s);
         }
@@ -32,7 +34,8 @@ header.main-header {
         }
 
         span:nth-child(3) {
-          width: 56px;
+          min-width: 56px;
+          max-width: 62px;
           overflow: hidden;
           @include transition(0.4s);
         }
@@ -46,6 +49,8 @@ header.main-header {
 
           span:nth-child(1) {
             width: 0;
+            min-width: 0;
+            max-width: 0;
             @include transition(0.4s);
           }
 
@@ -55,6 +60,8 @@ header.main-header {
 
           span:nth-child(3) {
             width: 0;
+            min-width: 0;
+            max-width: 0;
             @include transition(0.4s);
           }
         }
@@ -67,41 +74,6 @@ header.main-header {
 
     span {
       position: relative;
-
-      span.e {
-        position: relative;
-        height: 2.5px;
-        width: 15px;
-        background: #202020;
-        margin: 0 2px;
-        vertical-align: baseline;
-        border-radius: 2px;
-        display: inline-block;
-
-        &::before {
-          content: '';
-          height: 2.5px;
-          width: 15px;
-          background: #202020;
-          border-radius: 2px;
-          display: inline-block;
-          position: absolute;
-          left: 0;
-          top: -12px;
-        }
-
-        &::after {
-          content: '';
-          height: 2.5px;
-          width: 15px;
-          background: #202020;
-          border-radius: 2px;
-          display: inline-block;
-          position: absolute;
-          left: 0;
-          top: -6px;
-        }
-      }
     }
 
     .nav-toggle {
@@ -181,8 +153,8 @@ header.main-header {
 
     .dot {
       display: inline-block;
-      height: 30px;
-      width: 30px;
+      height: 40px;
+      width: 40px;
       background: $pc-2;
       border-radius: 50%;
       position: absolute;
