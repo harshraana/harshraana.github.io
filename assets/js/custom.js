@@ -7,6 +7,7 @@ $(document).ready(function () {
   $('.nav-toggle').on('click', function () {
     event.stopPropagation();
     $(this).toggleClass('open');
+    $('.navigation nav').toggleClass('open');
     var navState = $('.nav-toggle').hasClass('open');
 
     navItems.forEach((item, i) => {
@@ -20,6 +21,7 @@ $(document).ready(function () {
 
   $(document).on('click', () => {
     $('.nav-toggle').removeClass('open');
+    $('.navigation nav').removeClass('open');
     navItems.forEach((item, i) => {
       $(item).css({
         'transform': 'translateX(0%)',
@@ -32,6 +34,14 @@ $(document).ready(function () {
   var lastScrollTop = 0;
   $(window).scroll(function () {
     var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > 100) {
+      $('.main-header').addClass('scrolled');
+    } else {
+      $('.main-header').removeClass('scrolled');
+    }
+
+
     if (scrollTop > lastScrollTop) {
       $('.main-header .logo').addClass('shrinked');
     } else {
@@ -41,6 +51,51 @@ $(document).ready(function () {
   });
 
 });
+
+$(window).resize(function () {
+  resizeWindow();
+});
+
+function setAnimationGrid() {
+  if ($('.cust-grid-wrapper').length) {
+
+    // Get class on other items when one hovered
+    $('.cust-grid-wrapper:not(.no-effact) .grid-block').hover(function () {
+      if (event.type == "mouseover") {
+        $('.cust-grid-wrapper:not(.no-effact) .grid-block').addClass('item-hovered');
+        $(this).removeClass('item-hovered');
+        $('.cust-grid-wrapper').addClass('item-hovered');
+      } else {
+        $('.cust-grid-wrapper:not(.no-effact) .grid-block').removeClass('item-hovered');
+        $('.cust-grid-wrapper').removeClass('item-hovered');
+      }
+    });
+
+    // Set Height of blocks
+    var block = $('.cust-grid-wrapper .grid-block');
+    var windowWidth = $(window).width();
+    $('.cust-grid-wrapper .grid-block').each((i, block) => {
+
+      // settings for responsive
+      if (windowWidth > 767.98) {
+        if ((i % 4) == 3) {
+          $(block).css({
+            'border-right-width': '1px'
+          })
+        }
+      } else {
+        if ((i % 2) == 1) {
+          $(block).css({
+            'border-right-width': '1px'
+          })
+        }
+      }
+    })
+
+    var blockWidth = block.width()
+    block.height(blockWidth);
+  }
+}
 
 function initFullpage() {
 
@@ -97,4 +152,14 @@ function initJs() {
   /* rellax Animation */
   /* ------------------------------------- */
   var rellax = new Rellax('.rellax');
+
+  /* ------------------------------------- */
+  /* Grid Animation */
+  /* ------------------------------------- */
+  setAnimationGrid();
+}
+
+
+function resizeWindow() {
+  setAnimationGrid();
 }
