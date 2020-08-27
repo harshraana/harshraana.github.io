@@ -208,9 +208,6 @@ function setMarkers(marker, map) {
   var country = marker.country.trim();
   var population = marker.population_proper.trim();
 
-
-
-
   var pos = new google.maps.LatLng(markerMap[0], markerMap[1]);
   var content = marker;
 
