@@ -1,4 +1,9 @@
 $(document).ready(() => {
+    windowResize(window.innerHeight, window.innerWidth);
+
+    $(window).on('resize', function (e) {
+        windowResize(window.innerHeight, window.innerWidth);
+    })
 
     var lastScrollTop = 0;
     $(window).scroll(function () {
@@ -23,12 +28,31 @@ $(document).ready(() => {
 
     $('.gradientBox').hover(function (e) {
         if (e.type == 'mouseenter') {
-            $(this).addClass('hover');
-        } else {
             setTimeout(() => {
-                $(this).removeClass('hover');
+                $(this).addClass('hover');
             }, 400);
+        } else {
+            $(this).removeClass('hover');
         }
-    })
+    });
+
+
+    function windowResize(height, width) {
+        if (width < 767.98) {
+            /* init Carousel */
+            $('.project-section').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                prevArrow: `<button class="btn btn-primary btn-icon prev"><span class="material-icons">keyboard_arrow_left</span></button>`,
+                nextArrow: `<button class="btn btn-primary btn-icon next"><span class="material-icons">keyboard_arrow_right</span></button>`,
+                adaptiveHeight: true,
+                dots: false,
+                infinite: false
+            });
+        } else {
+            /* ub=nslick Carousel */
+            // $('.project-section').slick('unslick');
+        }
+    }
 
 })
