@@ -1,4 +1,18 @@
 $(document).ready(() => {
+
+    // var cursor = document.querySelector('#custom-cursor');
+
+    // document.addEventListener('mousemove', e => {
+    //     cursor.setAttribute("style", "top:" + e.pageY + "px; left:" + e.pageX + "px;");
+    // })
+
+    $('.technologies .tech').each(function () {
+        var percentage = $(this).find('.progress-bar .progress').attr('data-percentage');
+        $(this).find('.progress-bar .progress').width(percentage);
+    })
+
+
+    /* Window resize */
     windowResize(window.innerHeight, window.innerWidth);
 
     $(window).on('resize', function (e) {
@@ -30,6 +44,9 @@ $(document).ready(() => {
         if (e.type == 'mouseenter') {
             setTimeout(() => {
                 $(this).addClass('hover');
+                if (!$(this).is(":hover")) {
+                    $(this).removeClass('hover');
+                }
             }, 400);
         } else {
             $(this).removeClass('hover');
@@ -47,11 +64,11 @@ $(document).ready(() => {
                 nextArrow: `<button class="btn btn-primary btn-icon next"><span class="material-icons">keyboard_arrow_right</span></button>`,
                 adaptiveHeight: true,
                 dots: false,
-                infinite: false
+                infinite: false,
             });
         } else {
-            /* ub=nslick Carousel */
-            // $('.project-section').slick('unslick');
+            /* unslick Carousel */
+
         }
     }
 
