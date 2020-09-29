@@ -44,15 +44,28 @@ $(document).ready(() => {
         if (e.type == 'mouseenter') {
             setTimeout(() => {
                 $(this).addClass('hover');
+                $('.project-section .slick-list.draggable').height(780);
                 if (!$(this).is(":hover")) {
                     $(this).removeClass('hover');
                 }
             }, 400);
         } else {
             $(this).removeClass('hover');
+            $('.project-section .slick-list.draggable').height(430);
         }
     });
 
+    $('.slide-wrapper').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        prevArrow: `<button class="btn btn-primary btn-icon prev"><span class="material-icons">keyboard_arrow_left</span></button>`,
+        nextArrow: `<button class="btn btn-primary btn-icon next"><span class="material-icons">keyboard_arrow_right</span></button>`,
+        adaptiveHeight: false,
+        dots: false,
+        infinite: true,
+    });
 
     function windowResize(height, width) {
         if (width < 767.98) {
