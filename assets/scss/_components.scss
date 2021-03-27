@@ -1,0 +1,14 @@
+.img-wrapper {
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.gradient {
+  @include textGradient();
+}
+
+.cl-pc-1 {
+  color: $pc-1;
+}

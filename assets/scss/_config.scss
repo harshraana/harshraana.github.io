@@ -1,0 +1,176 @@
+/* Colors */
+$pc-1:#E10E38;
+$pc-2:#202020;
+$pc-3:#8A8A8A;
+$pc-4:#DCDCDC;
+$pc-5:#F5F5F5;
+$pc-6:#FFFFFF;
+
+$sect-bg:#FEF2F5;
+
+@mixin gradient() {
+  background: linear-gradient(45deg, $pc-2, $pc-1);
+  background: -moz-linear-gradient(45deg, $pc-2, $pc-1);
+  background: -o-linear-gradient(45deg, $pc-2, $pc-1);
+}
+
+@mixin textGradient() {
+  @include gradient();
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+@mixin transform($property) {
+  -moz-transform: $property;
+  -o-transform: $property;
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+@mixin transition($transition) {
+  transition: $transition;
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -ms-transition: $transition;
+  -o-transition: $transition;
+}
+
+@mixin blur($blur) {
+  -webkit-filter: blur($blur);
+  -moz-filter: blur($blur);
+  -ms-filter: blur($blur);
+  -o-filter: blur($blur);
+  filter: blur($blur);
+}
+
+@mixin forMaxWidth($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin forMinWidth($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+*::before,
+*::after,
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+html,
+body {
+  font-family: $ff-pop-rg;
+  font-size: 1.1713vw;
+  letter-spacing: 0.0732065vw;
+  color: $pc-2;
+  background-color: $pc-6;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+
+  /* Hidding Scrollbar from all browsers */
+  &::-webkit-scrollbar {
+    width: 0 !important
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  /* ------------------------------------ */
+}
+
+// Theme - color Configration
+
+// to remove blue highlight color on tap in mobile device
+input,
+textarea,
+button,
+select,
+a,
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a {
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
+}
+
+@mixin txtselection ($bg, $txt) {
+  ::-moz-selection {
+    /* Code for Firefox */
+    color: $txt;
+    background: $bg;
+  }
+
+  ::selection {
+    color: $txt;
+    background: $bg;
+  }
+}
+
+@include txtselection ($pc-1, $pc-6);
+
+
+h1 {
+  font-size: 2.6355vw;
+  margin: 0;
+}
+
+h2 {
+  font-size: 2.34261vw;
+  margin: 0;
+}
+
+h3 {
+  font-size: 2.05vw;
+  margin: 0;
+}
+
+h4 {
+  font-size: 1.757vw;
+  margin: 0;
+}
+
+h5 {
+  font-size: 1.4642vw;
+  margin: 0;
+}
+
+h6 {
+  font-size: 1.1713vw;
+  margin: 0;
+}
+
+b,
+strong {
+  font-family: $ff-pop-bo;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: 0.0732065vw;
+  line-height: 1.5;
+  font-family: $ff-pop-bo;
+}
+
+img {
+  max-width: 100%;
+}

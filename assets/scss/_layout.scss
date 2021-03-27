@@ -1,0 +1,171 @@
+/* Main-header */
+.main-header {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  left: 0;
+  top: 0;
+  padding: 1.4642vw 0;
+  z-index: 1;
+
+  .site-title h5 {
+    position: relative;
+    letter-spacing: 0.292826vw;
+    z-index: 1;
+    @include transition(0.2s);
+
+    &.light {
+      @include transition(0.2s);
+      color: $pc-6;
+    }
+  }
+
+  .nav-toggle {
+    position: relative;
+    display: inline-block;
+    height: 1.4642vw;
+    width: 1.4642vw;
+    cursor: pointer;
+    z-index: 1;
+    top: 0.3vw;
+    
+    span {
+      position: absolute;
+      display: inline-block;
+      height: 0.2vw;
+      width: 1.4642vw;
+      background-color: $pc-2;
+      right: 0;
+      @include transition(0.2s);
+
+      &:nth-child(1) {
+        top: 0.1vw;
+      }
+
+      &:nth-child(2) {
+        top: 0.55vw;
+      }
+
+      &:nth-child(3) {
+        top: 1vw;
+      }
+    }
+
+    &.open {
+      span {
+        background-color: $pc-6;
+        @include transition(0.2s);
+
+        &:nth-child(1) {
+          top: 0.55vw;
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          transform: rotate(180deg);
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          top: 0.55vw;
+          transform: rotate(135deg);
+        }
+      }
+    }
+  }
+
+  .site-nav {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: $pc-2;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    // display: none;
+    clip-path: circle(0% at 90.6vw 2.3vw);
+    @include transition(0.3s);
+
+    &.open {
+      // display: block;
+      clip-path: circle(100vw at 90.6vw 10.3vw);
+      @include transition(0.3s);
+    }
+
+    ul {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: left;
+
+      li {
+        a {
+          position: relative;
+          color: $pc-5;
+          font-family: $ff-pop-lt;
+          line-height: 2;
+          @include transition(0.3s);
+
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: -0.8vw;
+            left: 0;
+            height: 0.2vw;
+            background-color: $pc-1;
+            width: 0;
+            @include transition(0.3s);
+          }
+
+          &:hover {
+            @include transition(0.3s);
+            color: $pc-1;
+
+            &::after {
+              width: 100%;
+              @include transition(0.3s);
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+
+/* Valocity Animation */
+.animate.sections {
+  background-color: $pc-5;
+  height: 100vh;
+
+  .cd-section {
+    background-color: transparent;
+
+    >div.inner-wrapper {
+      background-color: $pc-6;
+      min-height: 100vh;
+    }
+  }
+
+  .cd-vertical-nav a {
+    position: relative;
+
+    span {
+      position: absolute;
+      color: $pc-2;
+      font-size: 36px;
+    }
+  }
+}
+
+/* Sections */
+.main-banner {
+  position: relative;
+  height: 100vh;
+
+  .designer-title {
+    font-size: 8vw;
+    letter-spacing: 3vw;
+  }
+}
